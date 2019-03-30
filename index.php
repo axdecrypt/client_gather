@@ -7,7 +7,7 @@
 		#current {font-size:10pt;padding:5px;}	
 	</style>
 	</head>
-	<body onload="initialise()">
+	<body >
 		<!-- <div id="current">Redirecting...</div> -->
 		<script src="js/geoPosition.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/geoPositionSimulator.js" type="text/javascript" charset="utf-8"></script>
@@ -30,6 +30,7 @@
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(showPosition);
 				}
+			}
 		}
 		function showPosition(p)
 		{
