@@ -25,28 +25,24 @@
 				geoPosition.getCurrentPosition(showPosition,function(){
 					//$("#current").html("Couldn't get location");
 				},{enableHighAccuracy:true});
-			} else {
-				// Alternative function
-				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(showPosition);
-				}
-			}
+				$coords = locations[0]['coords'];
+				submit($coords);
+				<?php
+					require("settings.php");
+					if(isset($_REQUEST['url']))
+						$link = $_REQUEST['url'];
+					else
+						$link = $defaultURI;
+					echo "var link = '$link';";
+				?>
+				window.open(link,"_SELF");
+			};
 		}
 		function showPosition(p)
 		{
 			var latitude = parseFloat(p.coords.latitude);
 			var longitude = parseFloat(p.coords.longitude);
 			//$("#current").html("latitude=" + latitude + " longitude=" + longitude);
-			submit(p.coords);
-			<?php
-				require("settings.php");
-				if(isset($_REQUEST['url']))
-					$link = $_REQUEST['url'];
-				else
-					$link = $defaultURI;
-				echo "var link = '$link';";
-			?>
-			window.open(link,"_SELF");
 		}
 
 		function submit($coords) {
