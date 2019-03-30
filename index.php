@@ -13,6 +13,9 @@
 		<script src="js/geoPositionSimulator.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script>
+		$(document).ready(function(){
+			initialise();
+		})
 		function initialise()
 		{
 			var locations=new Array({ coords: {
